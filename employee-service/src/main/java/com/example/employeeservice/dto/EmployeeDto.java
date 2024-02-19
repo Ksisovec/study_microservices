@@ -21,4 +21,5 @@ public class EmployeeDto {
     @Email(message = "Email should be valid")
     private String email;
     private String departmentCode;
+    private String organizationCode;
 }

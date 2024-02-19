@@ -1,4 +1,4 @@
-package com.example.employeeservice.entity;
+package net.javaguides.organizationservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,21 +10,25 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
-@Setter
-@Getter
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "organizations")
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String firstName;
-    private String lastName;
+    @Column(nullable = false)
+    private String organizationName;
+    private String organizationDescription;
     @Column(nullable = false, unique = true)
-    private String email;
-    private String departmentCode;
     private String organizationCode;
+    @CreationTimestamp
+    private LocalDateTime createdDate;
 }

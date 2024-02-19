@@ -30,7 +30,7 @@ public class EmployeeController {
         return new ResponseEntity<>(savedEmployee, HttpStatus.CREATED);
     }
 
-    @GetMapping("get/{id}")
+    @GetMapping("{id}")
     public Mono<ResponseEntity<FullEmployeeInfo>> getEmployeeById(@PathVariable("id") Long id) {
         return employeeService.getEmployeeById(id)
                 .map(response -> ResponseEntity.status(HttpStatus.OK).body(response))
